@@ -1,5 +1,17 @@
 # Lesson: Connect to the Internet
 
+## Index
+
+- [Logging](https://github.com/fireflyfif/android-dev-challenge/blob/master/ud851-Exercises-student/Lesson02-GitHub-Repo-Search/Article-02.md#logging)
+- [Resources](https://github.com/fireflyfif/android-dev-challenge/blob/master/ud851-Exercises-student/Lesson02-GitHub-Repo-Search/Article-02.md#resources)
+- [Menus](https://github.com/fireflyfif/android-dev-challenge/blob/master/ud851-Exercises-student/Lesson02-GitHub-Repo-Search/Article-02.md#menus)
+- [Build URL](https://github.com/fireflyfif/android-dev-challenge/blob/master/ud851-Exercises-student/Lesson02-GitHub-Repo-Search/Article-02.md#build-url)
+- [Fetching HTTP Request](https://github.com/fireflyfif/android-dev-challenge/blob/master/ud851-Exercises-student/Lesson02-GitHub-Repo-Search/Article-02.md#fetching-http-request)
+- [Permissions](https://github.com/fireflyfif/android-dev-challenge/blob/master/ud851-Exercises-student/Lesson02-GitHub-Repo-Search/Article-02.md#permissions)
+- [Thread Basics](https://github.com/fireflyfif/android-dev-challenge/blob/master/ud851-Exercises-student/Lesson02-GitHub-Repo-Search/Article-02.md#thread-basics)
+- [AsyncTask](https://github.com/fireflyfif/android-dev-challenge/blob/master/ud851-Exercises-student/Lesson02-GitHub-Repo-Search/Article-02.md#asynctask)
+- [JSON Format](https://github.com/fireflyfif/android-dev-challenge/blob/master/ud851-Exercises-student/Lesson02-GitHub-Repo-Search/Article-02.md#json-format)
+
 ## Logging
 Reference: 
 - [Log](https://developer.android.com/reference/android/util/Log.html)
