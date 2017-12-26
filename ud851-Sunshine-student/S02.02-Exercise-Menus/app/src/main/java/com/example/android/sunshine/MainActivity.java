@@ -18,6 +18,8 @@ package com.example.android.sunshine;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.example.android.sunshine.data.SunshinePreferences;
@@ -39,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
          * Using findViewById, we get a reference to our TextView from xml. This allows us to
          * do things like set the text of the TextView.
          */
-        mWeatherTextView = (TextView) findViewById(R.id.tv_weather_data);
+        mWeatherTextView = findViewById(R.id.tv_weather_data);
 
         /* Once all of our views are setup, we can load the weather data. */
         loadWeatherData();
@@ -97,12 +99,28 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    // TODO (2) Create a menu resource in res/menu/ called forecast.xml
-    // TODO (3) Add one item to the menu with an ID of action_refresh
-    // TODO (4) Set the title of the menu item to "Refresh" using strings.xml
+    // COMPLETED (2) Create a menu resource in res/menu/ called forecast.xml
+    // COMPLETED (3) Add one item to the menu with an ID of action_refresh
+    // COMPLETED (4) Set the title of the menu item to "Refresh" using strings.xml
 
-    // TODO (5) Override onCreateOptionsMenu to inflate the menu for this Activity
-    // TODO (6) Return true to display the menu
+    // COMPLETED (5) Override onCreateOptionsMenu to inflate the menu for this Activity
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.forecast, menu);
+        // COMPLETED (6) Return true to display the menu
+        return true;
+    }
 
-    // TODO (7) Override onOptionsItemSelected to handle clicks on the refresh button
+    // COMPLETED (7) Override onOptionsItemSelected to handle clicks on the refresh button
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.action_refresh) {
+            mWeatherTextView.setText("");
+            loadWeatherData();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }
