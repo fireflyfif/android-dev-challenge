@@ -64,10 +64,10 @@ public class MainActivity extends AppCompatActivity implements
          * Using findViewById, we get a reference to our RecyclerView from xml. This allows us to
          * do things like set the adapter of the RecyclerView and toggle the visibility.
          */
-        mRecyclerView = (RecyclerView) findViewById(R.id.recyclerview_forecast);
+        mRecyclerView = findViewById(R.id.recyclerview_forecast);
 
         /* This TextView is used to display errors and will be hidden if there are no errors */
-        mErrorMessageDisplay = (TextView) findViewById(R.id.tv_error_message_display);
+        mErrorMessageDisplay = findViewById(R.id.tv_error_message_display);
 
         /*
          * LinearLayoutManager can support HORIZONTAL or VERTICAL orientations. The reverse layout
@@ -101,33 +101,12 @@ public class MainActivity extends AppCompatActivity implements
          * Please note: This so called "ProgressBar" isn't a bar by default. It is more of a
          * circle. We didn't make the rules (or the names of Views), we just follow them.
          */
-        mLoadingIndicator = (ProgressBar) findViewById(R.id.pb_loading_indicator);
+        mLoadingIndicator = findViewById(R.id.pb_loading_indicator);
 
         // COMPLETED (7) Remove the code for the AsyncTask and initialize the AsyncTaskLoader
         /* Once all of our views are setup, we can load the weather data. */
         getSupportLoaderManager().initLoader(WEATHER_LOADER, null, this);
     }
-
-    /**
-     * This method will get the user's preferred location for weather, and then tell some
-     * background method to get the weather data in the background.
-     */
-//    private void loadWeatherData() {
-//        showWeatherDataView();
-//
-//        String location = SunshinePreferences.getPreferredWeatherLocation(this);
-//
-//        URL weatherLocationUrl = NetworkUtils.buildUrl(location);
-//
-//        Bundle weatherBundle = new Bundle();
-//        weatherBundle.putString(weatherLocationUrl.toString());
-//
-//        LoaderManager loaderManager = getSupportLoaderManager();
-//        Loader<String[]> weatherDataLoader = loaderManager.getLoader(WEATHER_LOADER);
-//        if (weatherDataLoader == null) {
-//            loaderManager.initLoader(WEATHER_LOADER, weatherBundle, this);
-//        }
-//    }
 
 
     /**
