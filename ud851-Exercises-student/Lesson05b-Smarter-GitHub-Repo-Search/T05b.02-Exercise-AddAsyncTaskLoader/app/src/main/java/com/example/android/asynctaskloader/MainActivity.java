@@ -88,19 +88,21 @@ public class MainActivity extends AppCompatActivity implements
         String githubQuery = mSearchBoxEditText.getText().toString();
 
         // COMPLETED (17) If no search was entered, indicate that there isn't anything to search for and return
+        if (TextUtils.isEmpty(githubQuery)) {
+            mUrlDisplayTextView.setText("No query entered, nothing to search for.");
+            return;
+        }
 
         URL githubSearchUrl = NetworkUtils.buildUrl(githubQuery);
         mUrlDisplayTextView.setText(githubSearchUrl.toString());
 
         // COMPLETED (19) Create a bundle called queryBundle
         Bundle queryBundle = new Bundle();
-
         // COMPLETED (20) Use putString with SEARCH_QUERY_URL_EXTRA as the key and the String value of the URL as the value
         queryBundle.putString(SEARCH_QUERY_URL_EXTRA, githubSearchUrl.toString());
 
         // COMPLETED (21) Call getSupportLoaderManager and store it in a LoaderManager variable
         LoaderManager loaderManager = getSupportLoaderManager();
-
         // COMPLETED (22) Get our Loader by calling getLoader and passing the ID we specified
         Loader<String> githubSearchLoader = loaderManager.getLoader(GITHUB_SEARCH_LOADER);
 
