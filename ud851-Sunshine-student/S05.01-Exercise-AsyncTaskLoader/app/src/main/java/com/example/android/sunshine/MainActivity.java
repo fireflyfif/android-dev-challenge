@@ -152,6 +152,7 @@ public class MainActivity extends AppCompatActivity implements
         mErrorMessageDisplay.setVisibility(View.VISIBLE);
     }
 
+    // COMPLETED (2) Within onCreateLoader, return a new AsyncTaskLoader that looks a lot like the existing FetchWeatherTask.
     @Override
     public Loader<String[]> onCreateLoader(int id, final Bundle args) {
         // Make the loading indicator visible here, not inside the Loader class
@@ -232,7 +233,7 @@ public class MainActivity extends AppCompatActivity implements
         return super.onOptionsItemSelected(item);
     }
 
-    // COMPLETED (2) Within onCreateLoader, return a new AsyncTaskLoader that looks a lot like the existing FetchWeatherTask.
+
     static class MyLoader extends AsyncTaskLoader<String[]> {
 
         // COMPLETED (3) Cache the weather data in a member variable and deliver it in onStartLoading.
