@@ -12,6 +12,8 @@
     <!-- Key name for storing bass in SharedPreferences -->
     <string name="pref_show_bass_key" translatable="false">show_bass</string>
 
+    <!-- Label for the show bass checkbox preference -->
+
     <!-- Summary for Checkboxes -->
     <string name="pref_show_true">Shown</string>
     <string name="pref_show_false">Hidden</string>
