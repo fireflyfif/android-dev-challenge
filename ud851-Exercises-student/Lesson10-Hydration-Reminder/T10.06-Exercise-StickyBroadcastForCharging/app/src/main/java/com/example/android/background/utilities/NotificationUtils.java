@@ -64,6 +64,7 @@ public class NotificationUtils {
     }
 
     public static void remindUserBecauseCharging(Context context) {
+
         NotificationManager notificationManager = (NotificationManager)
                 context.getSystemService(Context.NOTIFICATION_SERVICE);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -73,7 +74,9 @@ public class NotificationUtils {
                     NotificationManager.IMPORTANCE_HIGH);
             notificationManager.createNotificationChannel(mChannel);
             }
-        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(context,WATER_REMINDER_NOTIFICATION_CHANNEL_ID)
+
+        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(
+                context, WATER_REMINDER_NOTIFICATION_CHANNEL_ID)
                 .setColor(ContextCompat.getColor(context, R.color.colorPrimary))
                 .setSmallIcon(R.drawable.ic_drink_notification)
                 .setLargeIcon(largeIcon(context))
