@@ -1,14 +1,26 @@
 package com.example.android.sunshine.utilities;
 
 
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.app.TaskStackBuilder;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.content.ContextCompat;
 
+import com.example.android.sunshine.DetailActivity;
 import com.example.android.sunshine.R;
+import com.example.android.sunshine.data.SunshinePreferences;
 import com.example.android.sunshine.data.WeatherContract;
 
 public class NotificationUtils {
@@ -32,14 +44,18 @@ public class NotificationUtils {
     public static final int INDEX_MAX_TEMP = 1;
     public static final int INDEX_MIN_TEMP = 2;
 
-//  TODO (1) Create a constant int value to identify the notification
+//  COMPLETED (1) Create a constant int value to identify the notification
+    private static final int WEATHER_NOTIFICATION_ID = 100;
+
+    private static final String SYNC_NOTIFICATION_CHANNEL_ID = "sync-notification";
 
     /**
      * Constructs and displays a notification for the newly updated weather for today.
      *
      * @param context Context used to query our ContentProvider and use various Utility methods
      */
-    public static void notifyUserOfNewWeather(Context context) {
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+    public static void notifyUserOfNewWeather(final Context context) {
 
         /* Build the URI for today's weather in order to show up to date data in notification */
         Uri todaysWeatherUri = WeatherContract.WeatherEntry
@@ -83,19 +99,51 @@ public class NotificationUtils {
             int smallArtResourceId = SunshineWeatherUtils
                     .getSmallArtResourceIdForWeatherCondition(weatherId);
 
-//          TODO (2) Use NotificationCompat.Builder to begin building the notification
+//          COMPLETED (2) Use NotificationCompat.Builder to begin building the notification
+            NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(
+                    context, SYNC_NOTIFICATION_CHANNEL_ID)
+                    .setColor(ContextCompat.getColor(context, R.color.colorPrimary))
+                    .setSmallIcon(smallArtResourceId)
+                    .setLargeIcon(largeIcon)
+                    .setContentTitle(notificationTitle)
+                    .setContentText(notificationText)
+                    .setAutoCancel(true);
 
-//          TODO (3) Create an Intent with the proper URI to start the DetailActivity
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN
+                    && Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
+               notificationBuilder.setPriority(NotificationCompat.PRIORITY_HIGH);
+            }
 
-//          TODO (4) Use TaskStackBuilder to create the proper PendingIntent
+//          COMPLETED (3) Create an Intent with the proper URI to start the DetailActivity
+            Intent intentStartDetailActivity = new Intent(context, DetailActivity.class);
+            intentStartDetailActivity.setData(todaysWeatherUri);
 
-//          TODO (5) Set the content Intent of the NotificationBuilder
+//          COMPLETED (4) Use TaskStackBuilder to create the proper PendingIntent
+            TaskStackBuilder taskStackBuilder = TaskStackBuilder.create(context);
+            taskStackBuilder.addNextIntentWithParentStack(intentStartDetailActivity);
+            PendingIntent pendingIntent = taskStackBuilder
+                    .getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
 
-//          TODO (6) Get a reference to the NotificationManager
+//          COMPLETED (5) Set the content Intent of the NotificationBuilder
+            notificationBuilder.setContentIntent(pendingIntent);
 
-//          TODO (7) Notify the user with the ID WEATHER_NOTIFICATION_ID
+//          COMPLETED (6) Get a reference to the NotificationManager
+            NotificationManager notificationManager = (NotificationManager)
+                    context.getSystemService(Context.NOTIFICATION_SERVICE);
 
-//          TODO (8) Save the time at which the notification occurred using SunshinePreferences
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                NotificationChannel notificationChannel = new NotificationChannel(
+                        SYNC_NOTIFICATION_CHANNEL_ID,
+                        context.getString(R.string.main_notification_channel_name),
+                        NotificationManager.IMPORTANCE_HIGH);
+                notificationManager.createNotificationChannel(notificationChannel);
+            }
+
+//          COMPLETED (7) Notify the user with the ID WEATHER_NOTIFICATION_ID
+            notificationManager.notify(WEATHER_NOTIFICATION_ID, notificationBuilder.build());
+
+//          COMPLETED (8) Save the time at which the notification occurred using SunshinePreferences
+            SunshinePreferences.saveLastNotificationTime(context, System.currentTimeMillis());
         }
 
         /* Always close your cursor when you're done with it to avoid wasting resources. */

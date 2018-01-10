@@ -100,15 +100,13 @@ public class DetailActivity extends AppCompatActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
-        mDateView = (TextView) findViewById(R.id.date);
-        mDescriptionView = (TextView) findViewById(R.id.weather_description);
-        mHighTemperatureView = (TextView) findViewById(R.id.high_temperature);
-        mLowTemperatureView = (TextView) findViewById(R.id.low_temperature);
-        mHumidityView = (TextView) findViewById(R.id.humidity);
-        mWindView = (TextView) findViewById(R.id.wind);
-        mPressureView = (TextView) findViewById(R.id.pressure);
-
-
+        mDateView = findViewById(R.id.date);
+        mDescriptionView = findViewById(R.id.weather_description);
+        mHighTemperatureView = findViewById(R.id.high_temperature);
+        mLowTemperatureView = findViewById(R.id.low_temperature);
+        mHumidityView = findViewById(R.id.humidity);
+        mWindView = findViewById(R.id.wind);
+        mPressureView = findViewById(R.id.pressure);
 
         mUri = getIntent().getData();
         if (mUri == null) throw new NullPointerException("URI for DetailActivity cannot be null");

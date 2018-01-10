@@ -220,6 +220,7 @@
 
 
     <!-- Used by NotificationUtils -->
+    <string name="main_notification_channel_name">Primary</string>
 
     <!-- The format of the notification we show when the weather is updated -->
     <string name="format_notification">
@@ -227,5 +228,6 @@
         High:<xliff:g id="high">%2$s</xliff:g>
         Low:<xliff:g id="low">%3$s</xliff:g>
     </string>
+
 
 </resources>
