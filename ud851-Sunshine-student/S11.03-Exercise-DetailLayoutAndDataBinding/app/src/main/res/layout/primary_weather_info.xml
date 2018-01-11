@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- COMPLETED (25) Create a layout called primary_weather_info.xml -->
+<!-- COMPLETED (26) Surround the entire layout with <layout/> tags for data binding -->
+<!-- COMPLETED (27) Using ConstraintLayout, create the primary weather info layout -->
+<!-- COMPLETED (32) Include the primary_weather_info layout -->
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.20"
+            tools:text="Saturday, September 24" />
+
+        <ImageView
+            android:id="@+id/weatherIcon"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline_vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/date"
+            app:srcCompat="@drawable/ic_light_clouds" />
+
+        <!-- Text that describes weather condition -->
+        <TextView
+            android:id="@+id/weather_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="@+id/weatherIcon"
+            app:layout_constraintStart_toStartOf="@+id/weatherIcon"
+            app:layout_constraintTop_toBottomOf="@+id/weatherIcon"
+            tools:text="Rainy" />
+
+        <!-- High temperature for today -->
+        <TextView
+            android:id="@+id/high_temperature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+            app:layout_constraintBottom_toBottomOf="@+id/weatherIcon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline_vertical"
+            app:layout_constraintTop_toTopOf="@+id/weatherIcon"
+            tools:text="19\u00b0" />
+
+        <!-- Low temperature for today -->
+        <TextView
+            android:id="@+id/low_temperature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+            app:layout_constraintBaseline_toBaselineOf="@+id/weather_description"
+            app:layout_constraintEnd_toEndOf="@+id/high_temperature"
+            app:layout_constraintStart_toStartOf="@+id/high_temperature"
+            tools:text="10\u00b0" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5"
+            app:layout_editor_absoluteX="192dp"
+            app:layout_editor_absoluteY="0dp" />
+
+    </android.support.constraint.ConstraintLayout>
+</layout>
