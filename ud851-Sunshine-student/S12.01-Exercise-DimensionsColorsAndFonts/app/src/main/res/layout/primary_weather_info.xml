@@ -22,16 +22,17 @@
   - In order to use Android's data binding capabilities, (to avoid having to type findViewById   -
   - over and over again) we wrap this layout in a <layout></layout> tag.                         -
   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-<!-- TODO (14) Color the description, high temperature, and low temperature appropriately -->
-<!-- TODO (15) Replace dimension values with @dimen resources -->
-<!-- TODO (16) Use sans-serif-light font family for the temperature TextViews -->
+<!-- COMPLETED (14) Color the description, high temperature, and low temperature appropriately -->
+<!-- COMPLETED (15) Replace dimension values with @dimen resources -->
+<!-- COMPLETED (16) Use sans-serif-light font family for the temperature TextViews -->
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary">
 
         <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
          - This Guideline divides the screen into a left half and a right half and is used to    -
@@ -59,8 +60,10 @@
             android:id="@+id/date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="@dimen/today_forecast_list_item_vertical_padding"
             android:textSize="20sp"
+            android:fontFamily="sans-serif"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toTopOf="@+id/weather_icon"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -69,8 +72,8 @@
         <!-- Icon indicating weather condition -->
         <ImageView
             android:id="@+id/weather_icon"
-            android:layout_width="96dp"
-            android:layout_height="96dp"
+            android:layout_width="@dimen/today_icon"
+            android:layout_height="@dimen/today_icon"
             android:adjustViewBounds="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -83,7 +86,9 @@
             android:id="@+id/weather_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="@dimen/today_forecast_list_item_description_margin"
+            android:fontFamily="sans-serif"
+            android:textColor="@color/activated"
             android:textSize="20sp"
             app:layout_constraintHorizontal_bias="0.52"
             app:layout_constraintLeft_toLeftOf="@+id/weather_icon"
@@ -105,6 +110,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="72sp"
+            android:fontFamily="sans-serif-light"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="@+id/weather_icon"
             app:layout_constraintHorizontal_bias="0.45"
             app:layout_constraintLeft_toLeftOf="@+id/horizontal_middle"
@@ -126,6 +133,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="36sp"
+            android:fontFamily="sans-serif-light"
+            android:textColor="@color/white"
             app:layout_constraintBaseline_toBaselineOf="@+id/weather_description"
             app:layout_constraintLeft_toLeftOf="@+id/high_temperature"
             app:layout_constraintRight_toRightOf="@+id/high_temperature"
