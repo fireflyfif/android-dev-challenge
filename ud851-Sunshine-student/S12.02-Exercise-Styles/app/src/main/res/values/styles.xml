@@ -25,12 +25,30 @@
         <item name="preferenceTheme">@style/PreferenceThemeOverlay</item>
     </style>
 
-    <!-- TODO (1) Create a style that shows a Sunshine logo instead of a title -->
+    <!-- COMPLETED (1) Create a style that shows a Sunshine logo instead of a title -->
+    <style name="ActionBar.Solid.Sunshine.NoTitle" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+        <item name="displayOptions">useLogo|showHome</item>
+        <item name="logo">@drawable/ic_logo</item>
+    </style>
 
-    <!-- TODO (2) Create a style for MainActivity called AppTheme.Forecast that uses our custom ActionBar style -->
+    <!-- COMPLETED (2) Create a style for MainActivity called AppTheme.Forecast that uses our custom ActionBar style -->
+    <style name="AppTheme.Forecast" parent="@style/AppTheme">
+        <item name="actionBarStyle">@style/ActionBar.Solid.Sunshine.NoTitle</item>
+    </style>
 
-    <!-- TODO (3) Create the DetailLabel style -->
+    <!-- COMPLETED (3) Create the DetailLabel style -->
+    <style name="DetailLabel" parent="@style/TextAppearance.AppCompat.Title">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textColor">@color/detail_accent_label</item>
+    </style>
 
-    <!-- TODO (4) Create the ExtraWeatherMeasurement style -->
+    <!-- COMPLETED (4) Create the ExtraWeatherMeasurement style -->
+    <style name="ExtraWeatherMeasurement" parent="@style/TextAppearance.AppCompat.Headline">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
 
 </resources>
