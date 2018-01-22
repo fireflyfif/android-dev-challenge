@@ -12,5 +12,6 @@
 ![Alt text](https://github.com/fireflyfif/android-dev-challenge/blob/master/assets/Google-Dev-EMEA-Badge.png "")
 
 ## Peronal Notes:
-- [Lesson: Create Project Sunshine](https://github.com/fireflyfif/android-dev-challenge/blob/master/ud851-Exercises-student/Lesson01-Favorite-Toys/Article-01.md#lesson-create-project-sunshine)
-- [Lesson: Connect to the Internet](https://github.com/fireflyfif/android-dev-challenge/blob/master/ud851-Exercises-student/Lesson02-GitHub-Repo-Search/Article-02.md#lesson-connect-to-the-internet)
+- [Lesson: Create Project Sunshine](https://github.com/fireflyfif/android-dev-challenge/blob/master/notes/Article-01.md#lesson-create-project-sunshine)
+- [Lesson: Connect to the Internet](https://github.com/fireflyfif/android-dev-challenge/blob/master/notes/Article-02.md#lesson-connect-to-the-internet)
+- [Lesson: RecyclerView](https://github.com/fireflyfif/android-dev-challenge/blob/master/notes/Article-03.md#lesson--recyclerview)
