@@ -1,6 +1,13 @@
 # Lesson: Background Tasks
 
 ## Index
+- [Services](https://github.com/fireflyfif/android-dev-challenge/blob/master/notes/Article-04.md#services)
+- [Pending Intent](https://github.com/fireflyfif/android-dev-challenge/blob/master/notes/Article-04.md#pending-intent)
+- [Foreground Service](https://github.com/fireflyfif/android-dev-challenge/blob/master/notes/Article-04.md#foreground-service)
+- [Application Priority](https://github.com/fireflyfif/android-dev-challenge/blob/master/notes/Article-04.md#application-priority)
+- [Google Play Services](https://github.com/fireflyfif/android-dev-challenge/blob/master/notes/Article-04.md#google-play-services)
+- [Broadcast Receiver](https://github.com/fireflyfif/android-dev-challenge/blob/master/notes/Article-04.md#broadcast-receiver)
+- [Getting the Current Battery State](https://github.com/fireflyfif/android-dev-challenge/blob/master/notes/Article-04.md#getting-the-current-battery-state)
 
 ## Resources
 - [Background Operations](https://developer.android.com/guide/background/index.html)
