@@ -15,3 +15,4 @@
 - [Lesson: Create Project Sunshine](https://github.com/fireflyfif/android-dev-challenge/blob/master/notes/Article-01.md#lesson-create-project-sunshine)
 - [Lesson: Connect to the Internet](https://github.com/fireflyfif/android-dev-challenge/blob/master/notes/Article-02.md#lesson-connect-to-the-internet)
 - [Lesson: RecyclerView](https://github.com/fireflyfif/android-dev-challenge/blob/master/notes/Article-03.md#lesson--recyclerview)
+- [Lesson: Background Tasks](https://github.com/fireflyfif/android-dev-challenge/blob/master/notes/Article-04.md#lesson-background-tasks)
